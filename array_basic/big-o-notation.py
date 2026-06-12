@@ -1,7 +1,3 @@
-
-
-
-
 def find_element(array,value):
     n = len(array)
     lo = 0
