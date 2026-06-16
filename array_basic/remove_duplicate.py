@@ -1,18 +1,23 @@
 def RemduplicateSortedArr(nums):
 
-    unique = set()
+    unique = []
     list = []
 
     for i in range(len(nums)):
         if nums[i] not in unique:
-            unique.add(nums[i])
-            list.insert(i,nums[i])
+            unique.append(nums[i])
+    
         else:
-            list.insert(len(list)-1,nums[i])
+            list.append(nums[i])
+    
+    k = len(unique)
+    nums[:] = unique+list
         
-    return  len(unique) , list
+    return k , nums
 
-print(RemduplicateSortedArr([1,1,2,2,5])) # [1,2,5,_,_]
+print(RemduplicateSortedArr([1,1,2,2,5])) # [1,2,5,
+print(RemduplicateSortedArr([0,0,1,1,1,2,2,3,3,4])) # [1,2,5,
+print(RemduplicateSortedArr([1,1,2]))
 
 
 
