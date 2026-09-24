@@ -4,18 +4,22 @@ public:
 
         int n = nums.size();
         int maxi = INT_MIN;
+        int prefix = 1;
+        int suffix =1;
 
-        for(int i = 0; i < n; i++){
+        for ( int i=0 ; i<n; i++){
 
-            int product = 1;
-            for(int j =i; j<n; j++){
+            if(prefix == 0) prefix = 1;
+            else if(suffix == 0) suffix = 1;
 
-                product = product*nums[j];
-                maxi = max(maxi , product);
-            }
+            prefix = prefix * nums[i];
+            suffix = suffix * nums[n-1-i];
+
+            maxi = max(maxi , max(prefix , suffix));
         }
 
         return maxi;
         
     }
+
 };
